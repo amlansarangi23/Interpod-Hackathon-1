@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            position: relative;
+            width: 100%;
+            height: 80px;
+            left: 0;
+            top: 0;
+        }
+        header h4{
+            position: absolute;
+            left:10%;
+            bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .intro{
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #161616;
+            transition: 1s;
+        }
+        .logo-header{
+            position: absolute;
+            top:40%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #ffffff;
+        }
+        .logo{
+            position: relative;
+            display: inline-block;
+            bottom: -20px;
+            opacity: 0;
+        }
+        .logo.active{
+            bottom: 0;
+            opacity:1;
+            transition:ease-in-out 0.5s;
+        }
+        .logo.fade{
+            bottom:150px;
+            opacity: 0;
+            transition:ease-in-out 0.5s;
+        }
+    </style>
+
+
+</head>
+<body>
+      <div class="intro">
+        <h1 class="logo-header">
+            <span class="logo">WEB</span><span class="logo">WIZ</span><span class="logo">.</span>
+        </h1>
+      </div>
+
+      <header>
+        <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem repudiandae iusto vitae assumenda nostrum reprehenderit ducimus eius rerum autem ipsam laudantium quas maxime, odio molestiae porro aperiam sapiente nisi ratione.</h4>
+      </header>
+
+      <script>
+        let intro =document.querySelector('.intro')
+        let logo =document.querySelector('.logo-header')
+        let logoSpan =document.querySelector('.logo')
+
+        window.addEventListener('DOMContentLoaded', ()=>{
+
+            setTimeout(()=>{
+                logoSpan.forEach((span,idx)=>{
+                    setTimeout(()=>
+                    {
+                        span.classList.add('active');
+                    },(idx+1)*400)
+                })
+            })
+        })
+      </script>
+</body>
+</html>
